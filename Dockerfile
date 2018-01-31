@@ -1,6 +1,6 @@
 FROM ruby:2.4.3
 
-ENV PHANTOM_VERSION phantomjs-2.1.3-linux-x86_64
+ENV PHANTOM_VERSION 2.1.3
 
 RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
 
@@ -10,5 +10,4 @@ RUN apt-get update && \
     libfontconfig1 \
     mysql-client nodejs && \
     rm -rf /var/lib/apt/lists/* && \
-    wget -O - https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_VERSION.tar.bz2 | tar xj && \
-    mv $PHANTOM_VERSION/bin/phantomjs /usr/local/bin/ && rm -rf $PHANTOM_VERSION/
+    wget -q -P /usr/local/bin/ https://github.com/ariya/phantomjs/releases/download/$PHANTOM_VERSION/phantomjs

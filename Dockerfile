@@ -1,4 +1,4 @@
-FROM ruby:2.5.0-stretch
+FROM ruby:2.5.1-stretch
 
 ENV PHANTOM_VERSION phantomjs-2.1.1-linux-x86_64
 ENV DOCKERIZE_VERSION 0.6.0

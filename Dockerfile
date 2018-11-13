@@ -13,5 +13,6 @@ RUN apk add --no-cache --update --virtual \
     ttf-freefont \
     mysql-client \
     mariadb-dev \
+    nodejs \
     imagemagick && \
     wget -q https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && rm dockerize-alpine-linux-amd64-v$DOCKERIZE_VERSION.tar.gz

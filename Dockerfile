@@ -2,7 +2,7 @@ FROM ruby:2.5.3-alpine
 
 ENV DOCKERIZE_VERSION 0.6.1
 
-RUN apk --no-cache --update --virtual add \
+RUN apk add --no-cache --update --virtual \
     build-dependencies \
     build-base \
     gcc \

@@ -1,30 +1,9 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.5.3-stretch
 
 ENV DOCKERIZE_VERSION 0.6.1
 
-RUN apk add --no-cache --update --virtual \
-    build-dependencies \
-    build-base \
-    gcc \
-    wget \
-    git \
-    chromium-chromedriver \
-    xvfb \
-    ttf-freefont \
-    mysql-client \
-    mariadb-dev \
-    nodejs \
-    tzdata \
-    imagemagick && \
-    wget -q https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && rm dockerize-alpine-linux-amd64-v$DOCKERIZE_VERSION.tar.gz
-
-RUN apk update && apk upgrade \
-    && echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories \
-    && echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories \
-    && apk add --no-cache \
-    chromium@edge \
-    nss@edge \
-    && rm -rf /var/lib/apt/lists/* \
-    /var/cache/apk/* \
-    /usr/share/man \
-    /tmp/*
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y build-essential \
+    mysql-client nodejs chromedriver xvfb ttf-freefont && \
+    rm -rf /var/lib/apt/lists/* && \
+    wget -q https://github.com/jwilder/dockerize/releases/download/v$DOCKERIZE_VERSION/dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-v$DOCKERIZE_VERSION.tar.gz

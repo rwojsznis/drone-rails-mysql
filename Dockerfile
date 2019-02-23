@@ -1,11 +1,11 @@
-FROM ruby:2.5.3-stretch
+FROM ruby:2.6.1-stretch
 
 ENV DOCKERIZE_VERSION 0.6.1
-ENV NODE_VERSION 10.13.0
+ENV NODE_VERSION 10.15.1
 ENV NVM_DIR /nvm
 
 RUN mkdir $NVM_DIR \
-    && curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash \
+    && curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash \
     && . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
 

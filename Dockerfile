@@ -1,4 +1,4 @@
-FROM ruby:2.6.1-stretch
+FROM ruby:2.6.2-stretch
 
 ENV DOCKERIZE_VERSION 0.6.1
 ENV NODE_VERSION 10.15.1

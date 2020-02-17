@@ -11,7 +11,8 @@ RUN mkdir $NVM_DIR \
 
 USER root
 
-RUN echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+RUN gem update --system && gem install bundler \
+    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
     && echo "deb http://httpredir.debian.org/debian buster main contrib" > /etc/apt/sources.list \
     && echo "deb http://security.debian.org/ buster/updates main contrib" >> /etc/apt/sources.list \
     && apt-get update \

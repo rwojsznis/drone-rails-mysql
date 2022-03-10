@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.7.0
+FROM circleci/ruby:2.7.5
 
 ENV DOCKERIZE_VERSION 0.6.1
 ENV NODE_VERSION 12.16.0
